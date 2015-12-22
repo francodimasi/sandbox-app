@@ -1,11 +1,6 @@
 ---
-declared-services:
-  cloudant-location-tracker-db:
-    label: cloudantNoSQLDB
-    plan: Shared
 applications:
-- name: cloudant-location-tracker
+- name: sandbox-app
   memory: 128M
-  host: cloudant-location-tracker-${random-word}
-  services:
-  - cloudant-location-tracker-db
+  host: sanbox-app-${random-word}
+  command: node ./bin/www
