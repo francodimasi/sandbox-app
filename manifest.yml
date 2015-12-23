@@ -2,5 +2,5 @@
 applications:
 - name: sandbox-app
   memory: 128M
-  host: sanbox-app-${random-word}
+  host: sanbox-app-semioptimistic-nonattachment
   command: node app.js

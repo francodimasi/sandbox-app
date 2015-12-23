@@ -8,7 +8,9 @@ router.get('/', function(req, res, next) {
 
 // GET Twits
 router.get('/twits', function(req, res, next) {
-  res.send(twitterUrl);
+  var app = req.app;
+  var twitterCreds = app.get('twitterCreds');
+  res.send(twitterCreds);
 });
 
 module.exports = router;
