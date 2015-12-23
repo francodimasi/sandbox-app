@@ -33,6 +33,20 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
+// Load appEnv from CF
+var appEnv = cfenv.getAppEnv();
+var twitterUrl = getTwitterService(appEnv);
+
+function getTwitterService(appEnv) {
+  // retrieve the credentials the Twitter service by name
+  var twitterCreds = appEnv.getServiceCreds("twitterinsights");
+  if (!twitterCreds) {
+    console.error("No Twitter service named 'twitterinsights' found");
+    return "NO CREDS";
+  }
+  return twitterCreds.url;
+}
+
 
 /**
  * Normalize a port into a number, string, or false.
